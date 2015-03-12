@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors = ['Michal Kočárek']
   spec.email = ['michal.kocarek@brainbox.cz']
 
-  spec.summary = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
+  spec.summary = %q{Celluloid actors designed for long-time running}
+  spec.description = %q{Package extends Celluloid with actors suitable for running neverending tasks and enables their graceful termination.}
+  spec.homepage = 'https://github.com/michal-kocarek/celluloid-marathon'
   spec.license = 'MIT'
 
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.2'
 
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
+    #spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
   end
 
   spec.add_dependency 'celluloid'

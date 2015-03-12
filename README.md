@@ -1,8 +1,6 @@
 # Celluloid::Marathon
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/celluloid/marathon`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Package extends Celluloid with actors suitable for running neverending tasks and enables their graceful termination.
 
 ## Installation
 
@@ -22,7 +20,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Package provides two classes, `Celluloid::Marathon::Actor` and `Celluloid::Marathon::SupervisionGroup`. Actor contains method `finish` that can be called from
+outside world to let actor notify about that it should finish the neverending action it is performing right now.
+
+From the actor itself, it can cal `finishing?` to see if it can continue or work or finish as soon as possible.
+
+This functionality has been created because currently it is not possible to terminate an actor without killing currently running function perfectly.
 
 ## Contributing
 
