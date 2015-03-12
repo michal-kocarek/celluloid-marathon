@@ -4,22 +4,21 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 MiniTest::Reporters.use!
 require 'shoulda/context'
+require 'mocha/setup'
 
 require 'celluloid-marathon'
 
-Celluloid.task_class = Celluloid::TaskThread
+#Celluloid.task_class = Celluloid::TaskThread
 
 module CelluloidHooks
   def before_setup
     super
     Celluloid.boot
+    Celluloid.logger.level = Logger::INFO if Celluloid.logger
   end
 
   def after_teardown
-    old_logger = Celluloid.logger
-    Celluloid.logger = nil
     Celluloid.shutdown
-    Celluloid.logger = old_logger
     super
   end
 end
