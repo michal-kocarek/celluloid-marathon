@@ -15,11 +15,13 @@ module Celluloid
       # Let actor gracefully finish and wait till it finishes.
       #
       # All finishers are executed before method returns.
-      def finish
+      #
+      # @raise [Celluloid::TimeoutError] When timeout raises
+      def finish(timeout = nil)
         return if @finishing
 
         @finishing = true
-        future.__call_finisher(false).value
+        future.__call_finisher(false).value(timeout)
       end
 
       # Tells that actor is finishing and should finish all work as soon as possible.
